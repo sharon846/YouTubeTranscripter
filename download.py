@@ -52,7 +52,7 @@ def main():
         video_title = yt.title
         if not all:
             print(f"Video Title: {video_title}")
-            choice = input("Do you want to skip or proceed? (s/p/a): ").lower()
+            choice = input("Do you want to (s)kip, (p)roceed or download (a)ll? (s/p/a): ").lower()
         
             if choice == "a":
                 all = True
