@@ -3,6 +3,7 @@ import os
 import whisper
 from pytube import Playlist
 from pytube import YouTube
+import torch
 
 def transcribe_audio(path, file_name):
     model = whisper.load_model("large") # Change this to your desired model
@@ -21,6 +22,9 @@ def transcribe_audio(path, file_name):
         with open(srtFilename, 'a', encoding='utf-8') as srtFile:
             srtFile.write(segment)
 
+    del model.encoder
+    del model.decoder
+    torch.cuda.empty_cache()
     return srtFilename
 
 def download_audio_as_wav(yt, video_title):
