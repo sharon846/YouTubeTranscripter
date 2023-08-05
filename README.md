@@ -1,6 +1,6 @@
 ## YouTubeTranscripter
 Transcript entire playlist from youtube based on [OpenAI Whisper](https://github.com/openai/whisper).
-
+<br/>
 Upadate: added script download-faster which uses [faster-whisper](https://github.com/guillaumekln/faster-whisper).
 
 # Install:
