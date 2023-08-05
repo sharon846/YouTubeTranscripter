@@ -1,6 +1,6 @@
 from pytube import Playlist
 from pytube import YouTube
-#https://www.youtube.com/playlist?list=PLprSL4yuupIre5iRBi-uBdQ0-k7UWkWk_
+
 from faster_whisper import WhisperModel
 import torch
 
@@ -70,11 +70,12 @@ def main():
 		video_title = yt.title
 		if not all:
 			print(f"Video Title: {video_title}")
-			choice = input("Do you want to (s)kip, (p)roceed or download (a)ll? (s/p/a): ").lower()
+			choice = input("Do you want to (e)xit, (s)kip, (p)roceed or download (a)ll? (s/p/a): ").lower()
 		
 			if choice == "a":
 				all = True
-
+		if choice == "e":
+			return;
 		if choice == "s":
 			print(f"Skipping '{video_title}'")
 		elif choice == "p" or all:
