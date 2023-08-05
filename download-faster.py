@@ -1,6 +1,6 @@
 from pytube import Playlist
 from pytube import YouTube
-
+#https://www.youtube.com/playlist?list=PLprSL4yuupIre5iRBi-uBdQ0-k7UWkWk_
 from faster_whisper import WhisperModel
 import torch
 
@@ -14,9 +14,9 @@ def transcribe_audio(path, file_name):
 	model = WhisperModel("large-v2", device="cuda", compute_type="float16")
 
 	# or run on GPU with INT8
-	# model = WhisperModel(model_size, device="cuda", compute_type="int8_float16")
+	# model = WhisperModel("large-v2", device="cuda", compute_type="int8_float16")
 	# or run on CPU with INT8
-	# model = WhisperModel(model_size, device="cpu", compute_type="int8")
+	# model = WhisperModel("large-v2", device="cpu", compute_type="int8")
 	
 	print("Whisper model loaded.")
 	
@@ -32,13 +32,11 @@ def transcribe_audio(path, file_name):
 		text = text + f"{segmentId}\n{startTime} --> {endTime}\n{txt[1:] if txt[0] == ' ' else txt}\n\n"
 		segmentId+=1
 
-	srtFilename = f'file_name.srt'
+	srtFilename = f'{file_name}.srt'
 	with open(srtFilename, 'a', encoding='utf-8') as srtFile:
 		srtFile.write(text)
 
 	#optional, to clean cache
-	del model.encoder
-	del model.decoder
 	torch.cuda.empty_cache()
 
 	return file_name
