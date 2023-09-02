@@ -4,6 +4,7 @@ import whisper
 from pytube import Playlist
 from pytube import YouTube
 import torch
+import sys
 
 def transcribe_audio(path, file_name):
     model = whisper.load_model("large") # Change this to your desired model
