@@ -7,7 +7,7 @@ import torch
 from datetime import timedelta
 from tqdm import tqdm 
 import os
-
+import sys
 
 def transcribe_audio(path, file_name):
 	# Run on GPU with FP16
