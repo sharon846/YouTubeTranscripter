@@ -68,7 +68,7 @@ def main():
 	playlist = Playlist(playlist_link)
 	playlist._video_regex = r"\"url\":\"(/watch\?v=[\w-]*)"
 	videos = playlist.video_urls
-
+	choice = ""
 	for video_url in videos:
 		yt = YouTube(video_url)
 		video_title = yt.title
