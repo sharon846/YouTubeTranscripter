@@ -47,12 +47,13 @@ def download_audio_as_wav(yt, video_title):
 def main():
     if len(sys.argv) > 1:
         playlist_link = sys.argv[1]
+        all = True
     else:
         playlist_link = input("Enter the link to the YouTube playlist: ")
+        all = False
     playlist = Playlist(playlist_link)
     playlist._video_regex = r"\"url\":\"(/watch\?v=[\w-]*)"
     videos = playlist.video_urls
-    all = False
 
     for video_url in videos:
         yt = YouTube(video_url)
