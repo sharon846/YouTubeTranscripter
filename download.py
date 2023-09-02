@@ -57,6 +57,7 @@ def main():
     videos = playlist.video_urls
 
     for video_url in videos:
+        choice = ""
         yt = YouTube(video_url)
         video_title = yt.title
         if not all:
