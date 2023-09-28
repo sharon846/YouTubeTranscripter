@@ -1,5 +1,9 @@
-from pytube import Playlist
-from pytube import YouTube
+#from pytube import Playlist
+#from pytube import YouTube
+# pytube broke, using pytubefix instead
+
+from pytubefix import YouTube
+from pytubefix import Playlist
 
 from faster_whisper import WhisperModel
 import torch
